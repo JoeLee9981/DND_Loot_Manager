@@ -1,0 +1,21 @@
+<h1>Gem Items</h1>
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Roll</th>
+		<th>Average Value</th>
+		<th colspan="3"></th>
+	</tr>
+		
+<% @gem_items.each do |gem_item| %>
+	<tr>
+		<td><%= gem_item.name %></td>
+		<td><%= gem_item.low %> - <%= gem_item.high %></td>
+		<td><%= gem_item.avg_val %></td>
+		<td><%= link_to 'Show', gem_item_path(gem_item) %></td>
+		<td><%= link_to 'Edit', edit_gem_item_path(gem_item) %></td>
+		<td><%= link_to 'Destroy', gem_item_path(gem_item),
+						method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	</tr>
+<% end %>
+</table>

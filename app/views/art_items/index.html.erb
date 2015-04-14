@@ -1,0 +1,25 @@
+<p><%= link_to '<< Back', root_path %></p>
+
+<button onclick="document.location.href='/art_items/new'">Create</button>
+
+<h1>Art Items</h1>
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Roll</th>
+		<th>Average Value</th>
+		<th colspan="3"></th>
+	</tr>
+		
+<% @art_items.each do |art_item| %>
+	<tr>
+		<td><%= art_item.name %></td>
+		<td><%= art_item.low %> - <%= art_item.high %></td>
+		<td><%= art_item.avg_val %></td>
+		<td><%= link_to 'Show', art_item_path(art_item) %></td>
+		<td><%= link_to 'Edit', edit_art_item_path(art_item) %></td>
+		<td><%= link_to 'Destroy', art_item_path(art_item),
+						method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	</tr>
+<% end %>
+</table>

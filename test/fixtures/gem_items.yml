@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  low: 1
+  high: 1
+  avg_val: MyString
+
+two:
+  name: MyString
+  low: 1
+  high: 1
+  avg_val: MyString

@@ -1,0 +1,2 @@
+module LootRollsHelper
+end

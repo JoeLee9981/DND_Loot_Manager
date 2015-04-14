@@ -1,0 +1,33 @@
+
+<p>
+	<strong>Level:</strong>
+	<%= @loot_roll.level %>
+</p>
+
+<p>
+	<strong>Type:</strong>
+	<%= @loot_roll.loot_type %>
+</p>
+
+<p>
+	<strong>Roll:</strong>
+	<%= @loot_roll.low_roll %> - <%= @loot_roll.high_roll %>
+</p>
+
+<p>
+	<strong>Die:</strong>
+	<%= @loot_roll.die %> * <%= @loot_roll.scale %>
+</p>
+
+<p>
+	<strong>Coin Type:</strong>
+	<%= @loot_roll.coin_type %>
+</p>
+
+<p>
+	<strong>Sub Type:</strong>
+	<%= @loot_roll.sub_type%>
+</p>
+
+<%= link_to 'Back', loot_rolls_path %>
+| <%= link_to 'Edit', edit_loot_roll_path(@loot_roll) %>

@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  level: 1
+  type: 
+  low_roll: 1
+  high_roll: 1
+  die: MyString
+  scale: 1
+  coint_type: MyString
+  sub_type: MyString
+
+two:
+  level: 1
+  type: 
+  low_roll: 1
+  high_roll: 1
+  die: MyString
+  scale: 1
+  coint_type: MyString
+  sub_type: MyString
