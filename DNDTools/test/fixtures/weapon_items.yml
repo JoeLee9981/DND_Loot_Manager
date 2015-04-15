@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  generate: MyString
+  name: MyString
+  low: 1
+  high: 1
+  avg_val: MyString
+  integer: MyString
+
+two:
+  generate: MyString
+  name: MyString
+  low: 1
+  high: 1
+  avg_val: MyString
+  integer: MyString

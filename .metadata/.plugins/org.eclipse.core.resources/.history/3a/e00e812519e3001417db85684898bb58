@@ -1,0 +1,14 @@
+
+class IndexController < ApplicationController
+  include IndexHelper
+  
+  def index
+    @gem_item = GemItem.all
+  end
+  
+  def roll
+    
+  end
+
+
+end

@@ -1,0 +1,14 @@
+<h1>DND Toolset</h1>
+
+<div>
+	<table>
+	<% @gem_items.each do |gem_item| %>
+		<tr>
+			<td><%= gem_item.name %></td>
+			<td><%= gem_item.low %> - <%= gem_item.high %></td>
+			<td><%= gem_item.avg_val %></td>
+		</tr>
+	<% end %>
+	</table>
+</div>
+

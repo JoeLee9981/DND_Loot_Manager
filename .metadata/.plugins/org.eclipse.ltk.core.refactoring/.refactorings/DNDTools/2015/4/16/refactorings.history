@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;DNDTools/app/assets/stylesheets/application.css&apos; to &apos;application.css.sass&apos;" description="Rename resource &apos;application.css&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="app/assets/stylesheets/application.css" name="application.css.sass" stamp="1429072431027" updateReferences="true"/>
+</session>

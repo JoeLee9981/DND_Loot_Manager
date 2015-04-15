@@ -1,0 +1,4 @@
+<%= link_to 'Manage Loot Rolls', loot_rolls_path %>
+<%= link_to 'Manage Gems', gem_items_path %>
+<%= link_to 'Manage Art', art_items_path %>
+<%= link_to 'Manage Weapons', weapon_items_path %>

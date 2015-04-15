@@ -1,0 +1,27 @@
+<h1>Loot Rolls</h1>
+<table>
+	<tr>
+		<th>Level</th>
+		<th>Type</th>
+		<th>Roll</th>
+		<th>Ammount</th>
+		<th>Coin Type</th>
+		<th>Sub Type</th>
+		<th colspan="3"></th>
+	</tr>
+		
+<% @loot_rolls.each do |loot_roll| %>
+	<tr>
+		<td><%= loot_roll.level %></td>
+		<td><%= loot_roll.loot_type %></td>
+		<td><%= loot_roll.low_roll %> - <%= loot_roll.high_roll %></td>
+		<td><%= loot_roll.die %> * <%= loot_roll.scale %></td>
+		<td><%= loot_roll.coin_type %></td>
+		<td><%= loot_roll.sub_type %></td>
+		<td><%= link_to 'Show', loot_roll_path(loot_roll) %></td>
+		<td><%= link_to 'Edit', edit_loot_roll_path(loot_roll) %></td>
+		<td><%= link_to 'Destroy', loot_roll_path(loot_roll),
+						method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	</tr>
+<% end %>
+</table>

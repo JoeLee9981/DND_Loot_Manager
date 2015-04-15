@@ -1,0 +1,19 @@
+<h1>Weapons List</h1>
+
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Low</th>
+		<th>High</th>
+		<th>Average Value</th>
+	</tr>
+	
+	<% @weapon_items.each do |weapon_item| %>
+		<tr>
+			<td><% weapon_item.name %></td>
+			<td><% weapon_item.low %></td>
+			<td><% weapon_item.high %></td>
+			<td><% weapon_item.avg_val %></td>
+		</tr>
+	<% end %>
+</table>

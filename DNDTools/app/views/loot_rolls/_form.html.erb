@@ -1,0 +1,58 @@
+<%= form_for @loot_roll do |f| %>
+	<% if @loot_roll.errors.any? %>
+	<div id="error_explanation">
+		<h2><%= pluralize(@loot_roll.errors.count, "error") %> prevented
+			this art item from being saved.</h2>
+		<ul>
+		<% @loot_roll.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+		<% end %>
+		</ul>
+	</div>
+	<% end %>
+	
+	<p>
+		<%= f.label :level %><br>
+		<%= f.text_field :level %>
+	</p>
+	
+	<p>
+		<%= f.label :loot_type %><br>
+		<%= f.text_field :loot_type %>
+	</p>
+	
+	<p>
+		<%= f.label :low_roll %><br>
+		<%= f.text_field :low_roll %>
+	</p>
+	
+	<p>
+		<%= f.label :high_roll %><br>
+		<%= f.text_field :high_roll %>
+	</p>
+	
+	<p>
+		<%= f.label :die %><br>
+		<%= f.text_field :die %>
+	</p>
+	
+	<p>
+		<%= f.label :scale %><br>
+		<%= f.text_field :scale %>
+	</p>
+	
+	<p>
+		<%= f.label :coin_type %><br>
+		<%= f.text_field :coin_type %>
+	</p>
+	
+	<p>
+		<%= f.label :sub_type %><br>
+		<%= f.text_field :sub_type %>
+	</p>
+	
+	<p>
+		<%= f.submit %>
+	</p>
+
+<% end %>
