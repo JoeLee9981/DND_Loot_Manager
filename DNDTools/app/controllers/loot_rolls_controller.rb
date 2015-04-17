@@ -33,6 +33,17 @@ class LootRollsController < ApplicationController
   
   def index
     @loot_rolls = LootRoll.all
+    
+    @rolls = Array.new
+    
+    for i in 0..19
+      @rolls.push(Array.new)
+    end
+    
+    @loot_rolls.each do |loot_roll|
+      @rolls[loot_roll.level - 1].push(loot_roll)
+    end
+    
   end
   
   def destroy
@@ -43,7 +54,7 @@ class LootRollsController < ApplicationController
   end
   
   def import
-    file = File.new("/dnd_loot_rolls.csv", "r")
+    file = File.new("dnd_loot_rolls.csv", "r")
     file.gets
     while (line = file.gets)
       a = line.split(',')
@@ -58,8 +69,6 @@ class LootRollsController < ApplicationController
       @loot_roll.sub_type = a[7]
       @loot_roll.save
     end
-    
-    redirect_to loot_rolls_path
   end
   
   private

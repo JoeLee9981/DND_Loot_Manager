@@ -1,0 +1,41 @@
+<form method="GET">
+	<div class="input-group">
+		<label for="die">Die</label><br/>
+		<input id="1d4" name="die" type="radio" value="4">1d4</input>
+		<input id="1d6" name="die" type="radio" value="6">1d6</input>
+		<input id="1d8" name="die" type="radio" value="8">1d8</input>
+		<input id="1d12" name="die" type="radio" value="12">1d12</input>
+		<input id="1d20" name="die" type="radio" value="20">1d20</input>
+		<input id="1d100" name="die" type="radio" value="100" checked>1d100</input>
+	</div>
+	<button id="rollSubmit" type="submit">Roll</button>
+</form>
+
+<script>
+	$('#rollSubmit').click(function(event) {
+		event.preventDefault();
+		
+		var die = 100;
+		
+		if($('#1d4').is(':checked')) {
+			die = 4;	
+		}
+		else if($('#1d6').is(':checked')){
+			die = 6;	
+		}
+		else if($('#1d8').is(':checked')) {
+			die = 8;	
+		}
+		else if($('#1d12').is(':checked')) {
+			die = 12;	
+		}
+		else if($('#1d20').is(':checked')) {
+			die = 20;	
+		}
+		else if($('#1d100').is(':checked')) {
+			die = 100;	
+		}
+		
+		document.location.href='/?level=<%= @level %>&roll=' + die;
+	});
+</script>

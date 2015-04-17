@@ -4,7 +4,7 @@ class CreateWeaponItems < ActiveRecord::Migration
       t.string :name
       t.integer :low
       t.integer :high
-      t.integer :avg_val
+      t.string :avg_val
 
       t.timestamps
     end

@@ -1,19 +1,29 @@
+<p><%= link_to '<< Back', root_path %></p>
+
+<button onclick="document.location.href='/weapon_items/new'">Create</button>
+
 <h1>Weapons List</h1>
 
 <table>
-	<tr>
-		<th>Name</th>
-		<th>Low</th>
-		<th>High</th>
-		<th>Average Value</th>
-	</tr>
-	
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Roll</th>
+			<th>Average Value</th>
+			<th colspan="3"></th>
+		</tr>
+	</thead>
+	<tbody>
 	<% @weapon_items.each do |weapon_item| %>
 		<tr>
-			<td><% weapon_item.name %></td>
-			<td><% weapon_item.low %></td>
-			<td><% weapon_item.high %></td>
-			<td><% weapon_item.avg_val %></td>
+			<td><%= weapon_item.name %></td>
+			<td><%= weapon_item.low %> - <%= weapon_item.high %></td>
+			<td><%= weapon_item.avg_val %></td>
+			<td><%= link_to 'View', weapon_item_path(weapon_item) %></td>
+			<td><%= link_to 'Edit', edit_weapon_item_path(weapon_item) %></td>
+			<td><%= link_to 'Delete', weapon_item_path(weapon_item),
+							method: :delete, data: { confirm: 'Are you sure?' } %></td>
 		</tr>
 	<% end %>
+	</tbody>
 </table>
