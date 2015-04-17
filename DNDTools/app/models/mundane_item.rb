@@ -1,5 +1,4 @@
-class WeaponItem < ActiveRecord::Base
-  
+class MundaneItem < ActiveRecord::Base
   validates :name, presence: true
   
   validates :low, presence: true,
@@ -7,7 +6,12 @@ class WeaponItem < ActiveRecord::Base
                     
   validates :high, presence: true,
                     numericality: { only_integer: true } 
+                  
+  validates :sub_low, presence: true,
+                    numericality: { only_integer: true }
+                    
+  validates :sub_high, presence: true,
+                    numericality: { only_integer: true } 
                     
   validates :avg_val, presence: true
-  
 end

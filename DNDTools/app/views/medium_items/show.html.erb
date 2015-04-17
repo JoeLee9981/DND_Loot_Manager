@@ -1,0 +1,19 @@
+
+<p>
+	<strong>Name:</strong>
+	<%= @medium_item.name %>
+</p>
+
+<p>
+	<strong>Roll:</strong>
+	<%= @medium_item.low %> - <%= @medium_item.high %>
+</p>
+
+<p>
+	<strong>Average Value:</strong>
+	<%= @medium_item.avg_val %>
+</p>
+	
+<%= link_to 'Back', medium_items_path %>
+| <%= link_to 'Edit', edit_medium_item_path(@medium_item) %>
+

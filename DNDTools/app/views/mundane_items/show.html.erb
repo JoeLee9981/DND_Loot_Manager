@@ -1,0 +1,25 @@
+
+<p>
+	<strong>Name:</strong>
+	<%= @mundane_item.name %>
+</p>
+
+<p>
+	<strong>Roll:</strong>
+	<%= @mundane_item.low %> - <%= @mundane_item.high %>
+</p>
+
+<p>
+	<strong>Sub-Roll:</strong>
+	<%= @mundane_item.sub_low %> - <%= @mundane_item.sub_high %>
+</p>
+
+
+<p>
+	<strong>Average Value:</strong>
+	<%= @mundane_item.avg_val %>
+</p>
+	
+<%= link_to 'Back', mundane_items_path %>
+| <%= link_to 'Edit', edit_mundane_item_path(@mundane_item) %>
+

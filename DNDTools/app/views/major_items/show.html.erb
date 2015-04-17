@@ -1,0 +1,19 @@
+
+<p>
+	<strong>Name:</strong>
+	<%= @major_item.name %>
+</p>
+
+<p>
+	<strong>Roll:</strong>
+	<%= @major_item.low %> - <%= @major_item.high %>
+</p>
+
+<p>
+	<strong>Average Value:</strong>
+	<%= @major_item.avg_val %>
+</p>
+	
+<%= link_to 'Back', major_items_path %>
+| <%= link_to 'Edit', edit_major_item_path(@major_item) %>
+

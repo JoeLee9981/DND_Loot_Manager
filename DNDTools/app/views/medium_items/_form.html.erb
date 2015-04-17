@@ -1,10 +1,11 @@
-<%= form_for @weapon_item do |f| %>
-	<% if @weapon_item.errors.any? %>
+
+<%= form_for @medium_item do |f| %>
+	<% if @medium_item.errors.any? %>
 	<div id="error_explanation">
-		<h2><%= pluralize(@weapon_item.errors.count, "error") %> prevented
-			this weapon from being saved.</h2>
+		<h2><%= pluralize(@medium_item.errors.count, "error") %> prevented
+			this minor item from being saved.</h2>
 		<ul>
-		<% @weapon_item.errors.full_messages.each do |msg| %>
+		<% @medium_item.errors.full_messages.each do |msg| %>
 			<li><%= msg %></li>
 		<% end %>
 		</ul>

@@ -1,0 +1,27 @@
+<p><%= link_to '<< Back', root_path %></p>
+
+<button onclick="document.location.href='/mundane_items/new'">Create</button>
+
+<h1>Mundane Items</h1>
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Roll</th>
+		<th>Sub-Roll</th>
+		<th>Average Value</th>
+		<th colspan="3"></th>
+	</tr>
+		
+<% @mundane_items.each do |mundane_item| %>
+	<tr>
+		<td><%= mundane_item.name %></td>
+		<td><%= mundane_item.low %> - <%= mundane_item.high %></td>
+		<td><%= mundane_item.sub_low %> - <%= mundane_item.sub_high %></td>
+		<td><%= mundane_item.avg_val %></td>
+		<td><%= link_to 'Show', mundane_item_path(mundane_item) %></td>
+		<td><%= link_to 'Edit', edit_mundane_item_path(mundane_item) %></td>
+		<td><%= link_to 'Destroy', mundane_item_path(mundane_item),
+						method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	</tr>
+<% end %>
+</table>

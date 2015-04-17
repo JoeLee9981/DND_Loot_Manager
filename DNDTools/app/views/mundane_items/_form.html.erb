@@ -1,0 +1,49 @@
+
+<%= form_for @mundane_item do |f| %>
+	<% if @mundane_item.errors.any? %>
+	<div id="error_explanation">
+		<h2><%= pluralize(@mundane_item.errors.count, "error") %> prevented
+			this art item from being saved.</h2>
+		<ul>
+		<% @mundane_item.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+		<% end %>
+		</ul>
+	</div>
+	<% end %>
+	
+	<p>
+		<%= f.label :name %><br>
+		<%= f.text_field :name %>
+	</p>
+	
+	<p>
+		<%= f.label :low %><br>
+		<%= f.text_field :low %>
+	</p>
+	
+	<p>
+		<%= f.label :high %><br>
+		<%= f.text_field :high %>
+	</p>
+	
+	<p>
+		<%= f.label :sub_low %><br>
+		<%= f.text_field :sub_low %>
+	</p>
+	
+	<p>
+		<%= f.label :sub_high %><br>
+		<%= f.text_field :sub_high %>
+	</p>
+	
+	<p>
+		<%= f.label :avg_val %><br>
+		<%= f.text_field :avg_val %>
+	</p>
+	
+	<p>
+		<%= f.submit %>
+	</p>
+
+<% end %>

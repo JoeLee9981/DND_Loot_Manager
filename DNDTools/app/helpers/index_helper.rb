@@ -17,7 +17,7 @@ module IndexHelper
     
     loot_rolls.each do |loot_roll|
       if level == loot_roll.level and (roll >= loot_roll.low_roll and roll <= loot_roll.high_roll) and loot_roll.scale > 0
-        
+        @sub_type = loot_roll.sub_type.strip!
         @loot_table += "<tr><td>%d</td>" % loot_roll.level
         @loot_table += "<td>%d - %d</td>" % [ loot_roll.low_roll, loot_roll.high_roll ]
         if loot_roll.coin_type != "none"
@@ -25,27 +25,27 @@ module IndexHelper
            @loot_table += "<td>%d %s</td>" % [die_roll(loot_roll.die) * Integer(loot_roll.scale), loot_roll.coin_type]
         else
           @loot_table += "<td>%s * %d %s</td>" % [loot_roll.die, loot_roll.scale, loot_roll.sub_type]
-          if loot_roll.sub_type.strip! == "gems"
+          if @sub_type == "gems"
             @temp = die_roll(loot_roll.die)
             @gem_count += @temp * Integer(loot_roll.scale)
             @loot_table += "<td>%s %s</td>" % [ @temp * Integer(loot_roll.scale), loot_roll.sub_type]
-          elsif loot_roll.sub_type.strip! == "art"
+          elsif @sub_type == "art"
             @temp = die_roll(loot_roll.die)
             @art_count += @temp * Integer(loot_roll.scale)
             @loot_table += "<td>%s %s</td>" % [ @temp * Integer(loot_roll.scale), loot_roll.sub_type]
-          elsif loot_roll.sub_type.strip! == "mundane"
+          elsif @sub_type == "mundane"
             @temp = die_roll(loot_roll.die)
             @mundane_count += @temp * Integer(loot_roll.scale)
             @loot_table += "<td>%s %s</td>" % [ @temp * Integer(loot_roll.scale), loot_roll.sub_type]
-          elsif loot_roll.sub_type.strip! == "minor"
+          elsif @sub_type == "minor"
             @temp = die_roll(loot_roll.die)
             @minor_count += @temp * Integer(loot_roll.scale)
             @loot_table += "<td>%s %s</td>" % [ @temp * Integer(loot_roll.scale), loot_roll.sub_type]
-          elsif loot_roll.sub_type.strip! == "medium"
+          elsif @sub_type == "medium"
             @temp = die_roll(loot_roll.die)
             @medium_count += @temp * Integer(loot_roll.scale)
             @loot_table += "<td>%s %s</td>" % [ @temp * Integer(loot_roll.scale), loot_roll.sub_type]
-          elsif loot_roll.sub_type.strip! == "major"
+          elsif @sub_type == "major"
             @temp = die_roll(loot_roll.die)
             @major_count += @temp * Integer(loot_roll.scale)
             @loot_table += "<td>%s %s</td>" % [ @temp * Integer(loot_roll.scale), loot_roll.sub_type]
@@ -84,11 +84,59 @@ module IndexHelper
     return @art_table.html_safe
   end
   
+  def find_mundane(mundane, roll)
+    @mundane_table = "<h3>Roll for mundane: %d</h3><table><tr><th>name</th><th>value</th></tr>" %roll
+    mundane.each do |m|
+      if roll >= m.low and roll <= m.high
+        @mundane_table += "<tr><td>%s</td><td>%s</td></tr>" % [m.name, m.avg_val]
+      end
+    end
+    
+    @mundane_table += "</table>"
+    return @mundane_table.html_safe
+  end
+  
+  def find_minor(minor, roll)
+    @minor_table = "<h3>Roll for minor: %d</h3><table><tr><th>name</th><th>value</th></tr>" %roll
+    minor.each do |m|
+      if roll >= m.low and roll <= m.high
+        @minor_table += "<tr><td>%s</td><td>%s</td></tr>" % [m.name, m.avg_val]
+      end
+    end
+    
+    @minor_table += "</table>"
+    return @minor_table.html_safe
+  end
+  
+  def find_medium(medium, roll)
+    @medium_table = "<h3>Roll for medium: %d</h3><table><tr><th>name</th><th>value</th></tr>" %roll
+    medium.each do |m|
+      if roll >= m.low and roll <= m.high
+        @medium_table += "<tr><td>%s</td><td>%s</td></tr>" % [m.name, m.avg_val]
+      end
+    end
+    
+    @medium_table += "</table>"
+    return @medium_table.html_safe
+  end
+  
+  def find_major(major, roll)
+    @major_table = "<h3>Roll for major: %d</h3><table><tr><th>name</th><th>value</th></tr>" %roll
+    major.each do |m|
+      if roll >= m.low and roll <= m.high
+        @major_table += "<tr><td>%s</td><td>%s</td></tr>" % [m.name, m.avg_val]
+      end
+    end
+    
+    @major_table += "</table>"
+    return @major_table.html_safe
+  end
+  
   def die_roll(die)
     @num = die[0]
     @results = 0
-    for i in 0..Integer(@num)
-      @results += do_roll(convert_die(@num[1..@num.length]))
+    for i in 1..Integer(@num)
+      @results += do_roll(convert_die(die[1..die.length]))
     end
     return @results
   end

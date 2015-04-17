@@ -1,6 +1,6 @@
-class CreateWeaponItems < ActiveRecord::Migration
+class CreateMinorItems < ActiveRecord::Migration
   def change
-    create_table :weapon_items do |t|
+    create_table :minor_items do |t|
       t.string :name
       t.integer :low
       t.integer :high

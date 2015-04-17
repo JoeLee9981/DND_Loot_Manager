@@ -5,9 +5,12 @@ class IndexController < ApplicationController
   def index
     @error = nil;
     @gem_items = GemItem.all
-    @weapon_items = WeaponItem.all
     @art_items = ArtItem.all
     @loot_rolls = LootRoll.all
+    @mundane_items = MundaneItem.all
+    @minor_items = MinorItem.all
+    @medium_items = MediumItem.all
+    @major_items = MajorItem.all
     
     @rolls = Array.new
     
@@ -41,10 +44,11 @@ class IndexController < ApplicationController
     @minor_count = 0
     @medium_count = 0
     @major_count = 0
+    @sub_type = "";
     @result = nil;
     if params.has_key?(:roll)
       @result = do_roll(Integer(params[:roll]))
-      @loot_table, @gem_count, @art_count, @mundane_count, @minor_count, @medium_count, @major_count = find_results(@loot_rolls, @result, @level)
+      @loot_table, @gem_count, @art_count, @mundane_count, @minor_count, @medium_count, @major_count, @sub_type = find_results(@loot_rolls, @result, @level)
     end
     
     if @gem_count > 0
@@ -53,6 +57,22 @@ class IndexController < ApplicationController
     
     if @art_count > 0
       @art_table = find_art(@art_items, do_roll(Integer(params[:roll])))
+    end
+    
+    if @mundane_count > 0
+      @mundane_table = find_mundane(@mundane_items, do_roll(Integer(params[:roll])))
+    end
+    
+    if @minor_count > 0
+      @minor_table = find_minor(@minor_items, do_roll(Integer(params[:roll])))
+    end
+    
+    if @medium_count > 0
+      @medium_table = find_medium(@medium_items, do_roll(Integer(params[:roll])))
+    end
+    
+    if @major_count > 0
+      @major_table = find_major(@major_items, do_roll(Integer(params[:roll])))
     end
 
   end

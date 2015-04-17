@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150416171908) do
+ActiveRecord::Schema.define(version: 20150417040219) do
 
   create_table "art_items", force: true do |t|
     t.string   "name"
@@ -44,10 +44,39 @@ ActiveRecord::Schema.define(version: 20150416171908) do
     t.datetime "updated_at"
   end
 
-  create_table "weapon_items", force: true do |t|
+  create_table "major_items", force: true do |t|
     t.string   "name"
     t.integer  "low"
     t.integer  "high"
+    t.string   "avg_val"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "medium_items", force: true do |t|
+    t.string   "name"
+    t.integer  "low"
+    t.integer  "high"
+    t.string   "avg_val"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "minor_items", force: true do |t|
+    t.string   "name"
+    t.integer  "low"
+    t.integer  "high"
+    t.string   "avg_val"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "mundane_items", force: true do |t|
+    t.string   "name"
+    t.integer  "low"
+    t.integer  "high"
+    t.integer  "sub_low"
+    t.integer  "sub_high"
     t.string   "avg_val"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -1,0 +1,39 @@
+
+<%= form_for @minor_item do |f| %>
+	<% if @minor_item.errors.any? %>
+	<div id="error_explanation">
+		<h2><%= pluralize(@minor_item.errors.count, "error") %> prevented
+			this art item from being saved.</h2>
+		<ul>
+		<% @minor_item.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+		<% end %>
+		</ul>
+	</div>
+	<% end %>
+	
+	<p>
+		<%= f.label :name %><br>
+		<%= f.text_field :name %>
+	</p>
+	
+	<p>
+		<%= f.label :low %><br>
+		<%= f.text_field :low %>
+	</p>
+	
+	<p>
+		<%= f.label :high %><br>
+		<%= f.text_field :high %>
+	</p>
+	
+	<p>
+		<%= f.label :avg_val %><br>
+		<%= f.text_field :avg_val %>
+	</p>
+	
+	<p>
+		<%= f.submit %>
+	</p>
+
+<% end %>

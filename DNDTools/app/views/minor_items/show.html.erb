@@ -1,0 +1,19 @@
+
+<p>
+	<strong>Name:</strong>
+	<%= @minor_item.name %>
+</p>
+
+<p>
+	<strong>Roll:</strong>
+	<%= @minor_item.low %> - <%= @minor_item.high %>
+</p>
+
+<p>
+	<strong>Average Value:</strong>
+	<%= @minor_item.avg_val %>
+</p>
+	
+<%= link_to 'Back', minor_items_path %>
+| <%= link_to 'Edit', edit_minor_item_path(@minor_item) %>
+

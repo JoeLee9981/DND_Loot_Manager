@@ -1,0 +1,2 @@
+module MinorItemsHelper
+end

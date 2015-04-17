@@ -1,0 +1,25 @@
+<p><%= link_to '<< Back', root_path %></p>
+
+<button onclick="document.location.href='/medium_items/new'">Create</button>
+
+<h1>Medium Items</h1>
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Roll</th>
+		<th>Average Value</th>
+		<th colspan="3"></th>
+	</tr>
+		
+<% @medium_items.each do |medium_item| %>
+	<tr>
+		<td><%= medium_item.name %></td>
+		<td><%= medium_item.low %> - <%= medium_item.high %></td>
+		<td><%= medium_item.avg_val %></td>
+		<td><%= link_to 'Show', medium_item_path(medium_item) %></td>
+		<td><%= link_to 'Edit', edit_medium_item_path(medium_item) %></td>
+		<td><%= link_to 'Destroy', medium_item_path(medium_item),
+						method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	</tr>
+<% end %>
+</table>

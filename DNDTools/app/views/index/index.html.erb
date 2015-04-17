@@ -1,5 +1,7 @@
 <h1>DND Toolset</h1>
 
+<%= @sub_type %>
+
 <% if @level.is_a? Integer and Integer(@level) > 0 %>
 	<p><strong>Party Level: </strong><%= @level %> <a href="/">reset</a></p>
 	<%= render 'roll_form' %>
@@ -10,12 +12,22 @@
 	<%= render 'party_form' %>
 <% end %>
 
+<hr/>
+<h1>Loot results</h1>
+
 <% if @result %>
 <h3>You rolled: <strong><%= @result %></strong></h3>
 <%= @loot_table %>
 <%= @gem_table %>
 <%= @art_table %>
+<%= @mundane_table %>
+<%= @minor_table %>
+<%= @medium_table %>
+<%= @major_table %>
 <% end %>
+
+<hr/>
+<h1>Loot Tables</h1>
 
 <div class="accordion" id="accordion2">
 	 <div class="accordion-group">
@@ -133,13 +145,41 @@
 			</div>
 		</div>
 		
-		<!-- WEAPON TABLE -->
+		<!-- MUNDANE TABLE -->
 		<div class="accordion-heading">
-			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseWeapon">
-				Weapon Table
+			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseMundane">
+				Mundane Table
 			</a>
 		</div>
-		<div id="collapseWeapon" class="accordion-body collapse">
+		<div id="collapseMundane" class="accordion-body collapse">
+			<div class="accordion-inner">
+				<table>
+					<tr>
+						<th>Name</th>
+						<th>Roll</th>
+						<th>Sub-Roll</th>
+						<th>Average Value</th>
+					</tr>
+						
+				<% @mundane_items.each do |mundane_item| %>
+					<tr>
+						<td><%= mundane_item.name %></td>
+						<td><%= mundane_item.low %> - <%= mundane_item.high %></td>
+						<td><%= mundane_item.sub_low %> - <%= mundane_item.sub_high %></td>
+						<td><%= mundane_item.avg_val %></td>
+					</tr>
+				<% end %>
+				</table>
+			</div>
+		</div>
+		
+		<!-- MINOR TABLE -->
+		<div class="accordion-heading">
+			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseMinor">
+				Minor Wondrous Table
+			</a>
+		</div>
+		<div id="collapseMinor" class="accordion-body collapse">
 			<div class="accordion-inner">
 				<table>
 					<tr>
@@ -148,16 +188,69 @@
 						<th>Average Value</th>
 					</tr>
 						
-				<% @weapon_items.each do |weapon_item| %>
+				<% @minor_items.each do |minor_item| %>
 					<tr>
-						<td><%= weapon_item.name %></td>
-						<td><%= weapon_item.low %> - <%= weapon_item.high %></td>
-						<td><%= weapon_item.avg_val %></td>
+						<td><%= minor_item.name %></td>
+						<td><%= minor_item.low %> - <%= minor_item.high %></td>
+						<td><%= minor_item.avg_val %></td>
 					</tr>
 				<% end %>
 				</table>
 			</div>
 		</div>
+		
+		<!-- MEDIUM TABLE -->
+		<div class="accordion-heading">
+			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseMedium">
+				Medium Wondrous Table
+			</a>
+		</div>
+		<div id="collapseMedium" class="accordion-body collapse">
+			<div class="accordion-inner">
+				<table>
+					<tr>
+						<th>Name</th>
+						<th>Roll</th>
+						<th>Average Value</th>
+					</tr>
+						
+				<% @medium_items.each do |medium_item| %>
+					<tr>
+						<td><%= medium_item.name %></td>
+						<td><%= medium_item.low %> - <%= medium_item.high %></td>
+						<td><%= medium_item.avg_val %></td>
+					</tr>
+				<% end %>
+				</table>
+			</div>
+		</div>
+		
+		<!-- MAJOR TABLE -->
+		<div class="accordion-heading">
+			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseMajor">
+				Major Wondrous Table
+			</a>
+		</div>
+		<div id="collapseMajor" class="accordion-body collapse">
+			<div class="accordion-inner">
+				<table>
+					<tr>
+						<th>Name</th>
+						<th>Roll</th>
+						<th>Average Value</th>
+					</tr>
+						
+				<% @major_items.each do |major_item| %>
+					<tr>
+						<td><%= major_item.name %></td>
+						<td><%= major_item.low %> - <%= major_item.high %></td>
+						<td><%= major_item.avg_val %></td>
+					</tr>
+				<% end %>
+				</table>
+			</div>
+		</div>
+	
 	</div>
 </div>
 

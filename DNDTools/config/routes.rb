@@ -7,7 +7,10 @@ Rails.application.routes.draw do
   #end
   resources :gem_items
   resources :art_items
-  resources :weapon_items
+  resources :mundane_items
+  resources :minor_items
+  resources :medium_items
+  resources :major_items
   resources :rolls
 
   # The priority is based upon order of creation: first created -> highest priority.
