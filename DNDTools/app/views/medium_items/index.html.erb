@@ -1,25 +1,32 @@
-<p><%= link_to '<< Back', root_path %></p>
+<div class="row">
+	<h1 class="title-header">DND Toolset</h1>
+	<hr class="hr-dashing" />
+	
+	<div class="col-md-8 col-md-offset-2 text-center">
+		<button type="button" class="btn btn-primary" onclick="document.location.href='/'"><< Back</button>
 
-<button onclick="document.location.href='/medium_items/new'">Create</button>
-
-<h1>Medium Items</h1>
-<table>
-	<tr>
-		<th>Name</th>
-		<th>Roll</th>
-		<th>Average Value</th>
-		<th colspan="3"></th>
-	</tr>
+		<button onclick="document.location.href='/medium_items/new'" class="btn btn-primary">Create New Item</button>
 		
-<% @medium_items.each do |medium_item| %>
-	<tr>
-		<td><%= medium_item.name %></td>
-		<td><%= medium_item.low %> - <%= medium_item.high %></td>
-		<td><%= medium_item.avg_val %></td>
-		<td><%= link_to 'Show', medium_item_path(medium_item) %></td>
-		<td><%= link_to 'Edit', edit_medium_item_path(medium_item) %></td>
-		<td><%= link_to 'Destroy', medium_item_path(medium_item),
-						method: :delete, data: { confirm: 'Are you sure?' } %></td>
-	</tr>
-<% end %>
-</table>
+		<h2>Medium Items</h2>
+		<table class="table table-striped table-bordered">
+			<tr>
+				<th>Name</th>
+				<th>Roll</th>
+				<th>Average Value</th>
+				<th colspan="3"></th>
+			</tr>
+			
+			<% @medium_items.each do |medium_item| %>
+			<tr>
+				<td><%= medium_item.name %></td>
+				<td><%= medium_item.low %> - <%= medium_item.high %></td>
+				<td><%= medium_item.avg_val %></td>
+				<td><%= link_to 'Show', medium_item_path(medium_item) %></td>
+				<td><%= link_to 'Edit', edit_medium_item_path(medium_item) %></td>
+				<td><%= link_to 'Destroy', medium_item_path(medium_item),
+					method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			</tr>
+			<% end %>
+		</table>
+	</div>
+</div>

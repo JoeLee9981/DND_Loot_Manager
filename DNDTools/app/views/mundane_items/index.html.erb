@@ -1,27 +1,34 @@
-<p><%= link_to '<< Back', root_path %></p>
-
-<button onclick="document.location.href='/mundane_items/new'">Create</button>
-
-<h1>Mundane Items</h1>
-<table>
-	<tr>
-		<th>Name</th>
-		<th>Roll</th>
-		<th>Sub-Roll</th>
-		<th>Average Value</th>
-		<th colspan="3"></th>
-	</tr>
+<div class="row">
+	<h1 class="title-header">DND Toolset</h1>
+	<hr class="hr-dashing" />
+	
+	<div class="col-md-8 col-md-offset-2 text-center">
+		<button type="button" class="btn btn-primary" onclick="document.location.href='/'"><< Back</button>
 		
-<% @mundane_items.each do |mundane_item| %>
-	<tr>
-		<td><%= mundane_item.name %></td>
-		<td><%= mundane_item.low %> - <%= mundane_item.high %></td>
-		<td><%= mundane_item.sub_low %> - <%= mundane_item.sub_high %></td>
-		<td><%= mundane_item.avg_val %></td>
-		<td><%= link_to 'Show', mundane_item_path(mundane_item) %></td>
-		<td><%= link_to 'Edit', edit_mundane_item_path(mundane_item) %></td>
-		<td><%= link_to 'Destroy', mundane_item_path(mundane_item),
-						method: :delete, data: { confirm: 'Are you sure?' } %></td>
-	</tr>
-<% end %>
-</table>
+		<button onclick="document.location.href='/mundane_items/new'" class="btn btn-primary">Create New Item</button>
+		
+		<h2>Mundane Items</h2>
+		<table class="table table-striped table-bordered">
+			<tr>
+				<th>Name</th>
+				<th>Roll</th>
+				<th>Sub-Roll</th>
+				<th>Average Value</th>
+				<th colspan="3"></th>
+			</tr>
+			
+			<% @mundane_items.each do |mundane_item| %>
+			<tr>
+				<td><%= mundane_item.name %></td>
+				<td><%= mundane_item.low %> - <%= mundane_item.high %></td>
+				<td><%= mundane_item.sub_low %> - <%= mundane_item.sub_high %></td>
+				<td><%= mundane_item.avg_val %></td>
+				<td><%= link_to 'Show', mundane_item_path(mundane_item) %></td>
+				<td><%= link_to 'Edit', edit_mundane_item_path(mundane_item) %></td>
+				<td><%= link_to 'Destroy', mundane_item_path(mundane_item),
+					method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			</tr>
+			<% end %>
+		</table>
+	</div>
+</div>

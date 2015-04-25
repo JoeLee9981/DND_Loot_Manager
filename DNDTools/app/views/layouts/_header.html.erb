@@ -1,10 +1,16 @@
-<button type="button" class="btn btn-default btn-success" onclick="document.location.href='/'">
-  <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
-</button>
-<%= link_to 'Manage Loot Rolls', loot_rolls_path, class: 'btn btn-success' %>
-<%= link_to 'Manage Gems', gem_items_path, class: 'btn btn-success' %>
-<%= link_to 'Manage Art', art_items_path, class: 'btn btn-success' %>
-<%= link_to 'Manage Mundane', mundane_items_path, class: 'btn btn-success' %>
-<%= link_to 'Manage Minor', minor_items_path, class: 'btn btn-success' %>
-<%= link_to 'Manage Medium', medium_items_path, class: 'btn btn-success' %>
-<%= link_to 'Manage Major', major_items_path, class: 'btn btn-success' %>
+<div class="row">
+	  <div class="col-md-10 col-md-offset-1 text-center">
+		<button type="button" class="btn btn-primary" onclick="document.location.href='/'">
+		  <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+		</button>
+		<%= link_to 'Loot Rolls', loot_rolls_path, class: 'btn btn-primary' %>
+		<%= link_to 'Gems', gem_items_path, class: 'btn btn-primary' %>
+		<%= link_to 'Art', art_items_path, class: 'btn btn-primary' %>
+		<%= link_to 'Mundane Items', mundane_items_path, class: 'btn btn-primary' %>
+		<%= link_to 'Minor Items', minor_items_path, class: 'btn btn-primary' %>
+		<%= link_to 'Medium Items', medium_items_path, class: 'btn btn-primary' %>
+		<%= link_to 'Major Items', major_items_path, class: 'btn btn-primary' %>
+	</div>
+</div>
+
+

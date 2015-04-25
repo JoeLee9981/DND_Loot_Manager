@@ -1,25 +1,31 @@
-<p><%= link_to '<< Back', root_path %></p>
-
-<button onclick="document.location.href='/art_items/new'">Create</button>
-
-<h1>Art Items</h1>
-<table>
-	<tr>
-		<th>Name</th>
-		<th>Roll</th>
-		<th>Average Value</th>
-		<th colspan="3"></th>
-	</tr>
+<div class="row">
+	<h1 class="title-header">DND Toolset</h1>
+	<hr class="hr-dashing" />
+	
+	<div class="col-md-8 col-md-offset-2 text-center">
+		<button type="button" class="btn btn-primary" onclick="document.location.href='/'"><< Back</button>
+		<button onclick="document.location.href='/art_items/new'" class="btn btn-primary">Create New Art</button>
 		
-<% @art_items.each do |art_item| %>
-	<tr>
-		<td><%= art_item.name %></td>
-		<td><%= art_item.low %> - <%= art_item.high %></td>
-		<td><%= art_item.avg_val %></td>
-		<td><%= link_to 'Show', art_item_path(art_item) %></td>
-		<td><%= link_to 'Edit', edit_art_item_path(art_item) %></td>
-		<td><%= link_to 'Destroy', art_item_path(art_item),
-						method: :delete, data: { confirm: 'Are you sure?' } %></td>
-	</tr>
-<% end %>
-</table>
+		<h2>Art Items</h2>
+		<table class="table table-striped table-bordered">
+			<tr>
+				<th>Name</th>
+				<th>Roll</th>
+				<th>Average Value</th>
+				<th colspan="3"></th>
+			</tr>
+				
+		<% @art_items.each do |art_item| %>
+			<tr>
+				<td><%= art_item.name %></td>
+				<td><%= art_item.low %> - <%= art_item.high %></td>
+				<td><%= art_item.avg_val %></td>
+				<td><%= link_to 'Show', art_item_path(art_item) %></td>
+				<td><%= link_to 'Edit', edit_art_item_path(art_item) %></td>
+				<td><%= link_to 'Destroy', art_item_path(art_item),
+								method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			</tr>
+		<% end %>
+		</table>
+	</div>
+</div>

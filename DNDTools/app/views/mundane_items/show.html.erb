@@ -1,4 +1,8 @@
-
+<div class="row">
+	  <h1 class="title-header">DND Toolset</h1>
+		<hr class="hr-dashing" />
+	
+	  <div class="col-md-8 col-md-offset-2 text-center">
 <p>
 	<strong>Name:</strong>
 	<%= @mundane_item.name %>
@@ -20,6 +24,7 @@
 	<%= @mundane_item.avg_val %>
 </p>
 	
-<%= link_to 'Back', mundane_items_path %>
-| <%= link_to 'Edit', edit_mundane_item_path(@mundane_item) %>
-
+<%= link_to 'Back', mundane_items_path, class: 'btn btn-primary' %>
+<%= link_to 'Edit', edit_mundane_item_path(@mundane_item), class: 'btn btn-primary' %>
+	</div>
+</div>
