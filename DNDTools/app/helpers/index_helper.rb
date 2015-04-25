@@ -13,7 +13,7 @@ module IndexHelper
     @major_count = 0
     @weapons_count = 0
     
-    @loot_table = "<table><tr><th>name</th><th>roll</th><th>Loot</th><th>results</th></tr>"
+    @loot_table = "<table class=\"table table-striped table-bordered text-center\"><tr><th>Name</th><th>Roll</th><th>Loot</th><th>Results</th></tr>"
     
     loot_rolls.each do |loot_roll|
       if level == loot_roll.level and (roll >= loot_roll.low_roll and roll <= loot_roll.high_roll) and loot_roll.scale > 0
@@ -61,7 +61,7 @@ module IndexHelper
   end
   
   def find_gems(gems, roll)
-    @gem_table = "<h3>Roll for gems: %d</h3><table><tr><th>name</th><th>value</th></tr>" %roll
+    @gem_table = "<h4>Roll for gems: %d</h4><table class=\"table table-striped table-bordered text-center\"><tr><th>Name</th><th>Value</th></tr>" %roll
     gems.each do |gem|
       if roll >= gem.low and roll <= gem.high
         @gem_table += "<tr><td>%s</td><td>%s</td></tr>" % [gem.name, gem.avg_val]
@@ -73,7 +73,7 @@ module IndexHelper
   end
   
   def find_art(artwork, roll)
-    @art_table = "<h3>Roll for art: %d</h3><table><tr><th>name</th><th>value</th></tr>" %roll
+    @art_table = "<h4>Roll for art: %d</h4><table class=\"table table-striped table-bordered text-center\"><tr><th>Name</th><th>Value</th></tr>" %roll
     artwork.each do |art|
       if roll >= art.low and roll <= art.high
         @art_table += "<tr><td>%s</td><td>%s</td></tr>" % [art.name, art.avg_val]
@@ -85,7 +85,7 @@ module IndexHelper
   end
   
   def find_mundane(mundane, roll)
-    @mundane_table = "<h3>Roll for mundane: %d</h3><table><tr><th>name</th><th>value</th></tr>" %roll
+    @mundane_table = "<h4>Roll for mundane: %d</h4><table class=\"table table-striped table-bordered text-center\"><tr><th>Name</th><th>Value</th></tr>" %roll
     mundane.each do |m|
       if roll >= m.low and roll <= m.high
         @mundane_table += "<tr><td>%s</td><td>%s</td></tr>" % [m.name, m.avg_val]
@@ -97,7 +97,7 @@ module IndexHelper
   end
   
   def find_minor(minor, roll)
-    @minor_table = "<h3>Roll for minor: %d</h3><table><tr><th>name</th><th>value</th></tr>" %roll
+    @minor_table = "<h4>Roll for minor: %d</h4><table class=\"table table-striped table-bordered text-center\"><tr><th>Name</th><th>Value</th></tr>" %roll
     minor.each do |m|
       if roll >= m.low and roll <= m.high
         @minor_table += "<tr><td>%s</td><td>%s</td></tr>" % [m.name, m.avg_val]
@@ -109,7 +109,7 @@ module IndexHelper
   end
   
   def find_medium(medium, roll)
-    @medium_table = "<h3>Roll for medium: %d</h3><table><tr><th>name</th><th>value</th></tr>" %roll
+    @medium_table = "<h4>Roll for medium: %d</h4><table class=\"table table-striped table-bordered text-center\"><tr><th>Name</th><th>Value</th></tr>" %roll
     medium.each do |m|
       if roll >= m.low and roll <= m.high
         @medium_table += "<tr><td>%s</td><td>%s</td></tr>" % [m.name, m.avg_val]
@@ -121,7 +121,7 @@ module IndexHelper
   end
   
   def find_major(major, roll)
-    @major_table = "<h3>Roll for major: %d</h3><table><tr><th>name</th><th>value</th></tr>" %roll
+    @major_table = "<h4>Roll for major: %d</h4><table class=\"table table-striped table-bordered text-center\"><tr><th>Name</th><th>Value</th></tr>" %roll
     major.each do |m|
       if roll >= m.low and roll <= m.high
         @major_table += "<tr><td>%s</td><td>%s</td></tr>" % [m.name, m.avg_val]

@@ -1,18 +1,24 @@
-
-<p>
-	<strong>Name:</strong>
-	<%= @gem_item.name %>
-</p>
-
-<p>
-	<strong>Roll:</strong>
-	<%= @gem_item.low %> - <%= @gem_item.high %>
-</p>
-
-<p>
-	<strong>Average Value:</strong>
-	<%= @gem_item.avg_val %>
-</p>
-
-<%= link_to 'Back', gem_items_path %>
-| <%= link_to 'Edit', edit_gem_item_path(@gem_item) %>
+<div class="row">
+	  <h1 class="title-header">DND Toolset</h1>
+		<hr class="hr-dashing" />
+	
+	  <div class="col-md-8 col-md-offset-2 text-center">
+		<p>
+			<strong>Name:</strong>
+			<%= @gem_item.name %>
+		</p>
+		
+		<p>
+			<strong>Roll:</strong>
+			<%= @gem_item.low %> - <%= @gem_item.high %>
+		</p>
+		
+		<p>
+			<strong>Average Value:</strong>
+			<%= @gem_item.avg_val %>
+		</p>
+		
+		<%= link_to 'Back', gem_items_path, class: 'btn btn-primary' %>
+		<%= link_to 'Edit', edit_gem_item_path(@gem_item), class: 'btn btn-primary' %>
+	</div>
+</div>

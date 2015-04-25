@@ -1,15 +1,31 @@
-<form method="GET">
-	<div class="input-group">
-		<label for="die">Die</label><br/>
-		<input id="1d4" name="die" type="radio" value="4">1d4</input>
-		<input id="1d6" name="die" type="radio" value="6">1d6</input>
-		<input id="1d8" name="die" type="radio" value="8">1d8</input>
-		<input id="1d12" name="die" type="radio" value="12">1d12</input>
-		<input id="1d20" name="die" type="radio" value="20">1d20</input>
-		<input id="1d100" name="die" type="radio" value="100" checked>1d100</input>
+<div class="row">
+	  <div class="col-md-6 col-md-offset-3 text-center">
+			<form method="GET">
+				<div class="radio">
+					<label for="die"><strong>Pick die to roll:</strong></label><br/>
+					<label>
+						<input id="1d4" name="die" type="radio" value="4">1d4</input>		
+					</label>
+					<label>
+					<input id="1d6" name="die" type="radio" value="6">1d6</input>
+					</label>
+					<label>
+					<input id="1d8" name="die" type="radio" value="8">1d8</input>
+					</label>
+					<label>
+					<input id="1d12" name="die" type="radio" value="12">1d12</input>
+					</label>
+					<label>
+					<input id="1d20" name="die" type="radio" value="20">1d20</input>
+					</label>
+					<label>
+					<input id="1d100" name="die" type="radio" value="100" checked>1d100</input>
+					</label>
+				</div>
+				<button id="rollSubmit" type="submit" class="btn btn-primary">Roll</button>
+			</form>
 	</div>
-	<button id="rollSubmit" type="submit">Roll</button>
-</form>
+</div>
 
 <script>
 	$('#rollSubmit').click(function(event) {
